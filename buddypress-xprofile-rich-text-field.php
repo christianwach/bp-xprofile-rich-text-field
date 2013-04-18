@@ -9,9 +9,9 @@ Author URI: http://haystack.co.uk
 Plugin URI: http://haystack.co.uk
 --------------------------------------------------------------------------------
 Forked from: Buddypress Xprofile Custom Fields Type
-Many thanks to the original author: Atallos Cloud
-Original Author URI: http://www.atallos.com/
-Original Plugin URI: http://www.atallos.com/portfolio/buddypress-xprofile-custom-fields-type/
+With many thanks to the original author: Atallos Cloud
+Original Author's URI: http://www.atallos.com/
+Original Plugin's URI: http://www.atallos.com/portfolio/buddypress-xprofile-custom-fields-type/
 --------------------------------------------------------------------------------
 */
 
@@ -33,8 +33,6 @@ class BpXprofileRichTextField {
 	/** 
 	 * @description: initialises this object
 	 * @return object
-	 * @todo: 
-	 *
 	 */
 	function __construct() {
 	
@@ -75,7 +73,8 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * PHP 4 constructor
+	 * @description: PHP 4 constructor
+	 * @return object
 	 */
 	function BpXprofileRichTextField() {
 		
@@ -95,7 +94,9 @@ class BpXprofileRichTextField {
 	//##########################################################################
 	
 	/**
-	 * Register our field type
+	 * @description: register our field type
+	 * @param array $field_types
+	 * @return array
 	 */
 	function register_field_type( $field_types ) {
 	
@@ -118,7 +119,10 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * Preview our field type
+	 * @description: preview our field type
+	 * @param object $field
+	 * @param boolean $echo
+	 * @return string
 	 */
 	function preview_admin_field( $field, $echo = true ) {
 
@@ -168,7 +172,7 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * Show our field type in edit mode
+	 * @description: show our field type in edit mode
 	 */
 	function edit_field() {
 	
@@ -230,7 +234,11 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * Show our field type in read mode
+	 * @description: show our field type in read mode
+	 * @param string $value
+	 * @param string $type
+	 * @param integer $id
+	 * @return string
 	 */
 	function get_field_value( $value = '', $type = '', $id = '' ) {
 	
@@ -252,12 +260,16 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * Filter for those who use xprofile_get_field_data instead of get_field_value.
-	 * @param type $value
-	 * @param type $field_id
+	 * @description: filter for those who use xprofile_get_field_data instead of get_field_value
+	 * @param string $value
+	 * @param integer $field_id
+	 * @param integer $user_id
 	 * @return string
 	 */
 	function get_field_data( $value = '', $field_id = '', $user_id = '' ) {
+	
+		// check we get a field ID
+		if ( $field_id === '' ) { return $value; }
 	
 		// get field object
 		$field = new BP_XProfile_Field( $field_id );
@@ -276,7 +288,7 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * JS files
+	 * @description: enqueue JS files
 	 */
 	function enqueue_js( $hook ) {    
 		
@@ -312,7 +324,7 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * CSS files
+	 * @description: enqueue CSS files
 	 */
 	function enqueue_css() {    
 		
@@ -336,7 +348,7 @@ class BpXprofileRichTextField {
 
 
 /**
- * Initialise our plugin after BuddyPress
+ * @description: initialise our plugin after BuddyPress initialises
  */
 function bp_xprofile_rich_text_field() {    
 
