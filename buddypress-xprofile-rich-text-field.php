@@ -31,7 +31,8 @@ BpXprofileRichTextField Class
 class BpXprofileRichTextField {
 
 	/** 
-	 * @description: initialises this object
+	 * Initialises this object
+	 *
 	 * @return object
 	 */
 	function __construct() {
@@ -75,7 +76,8 @@ class BpXprofileRichTextField {
 	//##########################################################################
 	
 	/**
-	 * @description: register our field type
+	 * Register our field type
+	 *
 	 * @param array $field_types
 	 * @return array
 	 */
@@ -100,7 +102,8 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * @description: preview our field type
+	 * Preview our field type
+	 *
 	 * @param object $field
 	 * @param boolean $echo
 	 * @return string
@@ -153,7 +156,9 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * @description: show our field type in edit mode
+	 * Show our field type in edit mode
+	 *
+	 * @return void
 	 */
 	function edit_field() {
 	
@@ -215,7 +220,8 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * @description: show our field type in read mode
+	 * Show our field type in read mode
+	 *
 	 * @param string $value
 	 * @param string $type
 	 * @param integer $id
@@ -241,7 +247,8 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * @description: filter for those who use xprofile_get_field_data instead of get_field_value
+	 * Filter for those who use xprofile_get_field_data instead of get_field_value
+	 *
 	 * @param string $value
 	 * @param integer $field_id
 	 * @param integer $user_id
@@ -269,7 +276,9 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * @description: enqueue JS files
+	 * Enqueue JS files
+	 *
+	 * @return void
 	 */
 	function enqueue_js( $hook ) {    
 		
@@ -305,7 +314,9 @@ class BpXprofileRichTextField {
 	}
 
 	/**
-	 * @description: enqueue CSS files
+	 * Enqueue CSS files
+	 *
+	 * @return void
 	 */
 	function enqueue_css() {    
 		
@@ -329,7 +340,9 @@ class BpXprofileRichTextField {
 
 
 /**
- * @description: initialise our plugin after BuddyPress initialises
+ * Initialise our plugin after BuddyPress initialises
+ *
+ * @return void
  */
 function bp_xprofile_rich_text_field() {    
 
