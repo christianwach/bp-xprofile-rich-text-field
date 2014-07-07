@@ -72,25 +72,6 @@ class BpXprofileRichTextField {
 
 	}
 
-	/**
-	 * @description: PHP 4 constructor
-	 * @return object
-	 */
-	function BpXprofileRichTextField() {
-		
-		// is this php5?
-		if ( version_compare( PHP_VERSION, "5.0.0", "<" ) ) {
-		
-			// call php5 constructor
-			$this->__construct();
-			
-		}
-		
-		// --<
-		return $this;
-
-	}
-
 	//##########################################################################
 	
 	/**
