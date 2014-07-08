@@ -24,56 +24,111 @@ define( 'BP_XPROFILE_RICH_TEXT_FIELD_VERSION', '0.1' );
 
 /*
 --------------------------------------------------------------------------------
-BpXprofileRichTextField Class
+BP_XProfile_Rich_Text_Field Class
 --------------------------------------------------------------------------------
 */
 
-class BpXprofileRichTextField {
-
+class BP_XProfile_Rich_Text_Field {
+	
+	
+	
 	/** 
 	 * Initialises this object
 	 *
 	 * @return object
 	 */
 	function __construct() {
-	
-		// register field type
-		add_filter( 'xprofile_field_types', array( $this, 'register_field_type' ) );
 		
-		// preview field type
-		add_filter( 'xprofile_admin_field', array( $this, 'preview_admin_field'), 9, 2 );
+		// there's a new API in BuddyPress 2.0
+		if ( function_exists( 'bp_xprofile_get_field_types' ) ) {
 		
-		// test for a function in BP 1.7+
-		if ( function_exists( 'bp_is_network_activated' ) ) {
-
-			// in BP 1.7+ show our field type in edit mode via pre_visibility hook
-			add_action( 'bp_custom_profile_edit_fields_pre_visibility', array( $this, 'edit_field' ) );
+			// include class
+			require_once( 'buddypress-xprofile-rich-text-field-class.php' );
+			
+			// register with BP the 2.0 way...
+			add_filter( 'bp_xprofile_get_field_types', array( $this, 'add_field_type' ) );
+			
+			// we need to parse the edit value in BP 2.0
+			add_filter( 'bp_get_the_profile_field_edit_value', array( $this, 'get_field_value' ), 30, 3 );
 			
 		} else {
 		
-			// show our field type in edit mode via the previous hook
-			add_action( 'bp_custom_profile_edit_fields', array( $this, 'edit_field' ) );
-			
-		}
+			// register field type
+			add_filter( 'xprofile_field_types', array( $this, 'register_field_type' ) );
 		
+			// preview field type
+			add_filter( 'xprofile_admin_field', array( $this, 'preview_admin_field'), 9, 2 );
+		
+			// test for a function in BP 1.7+
+			if ( function_exists( 'bp_is_network_activated' ) ) {
+
+				// in BP 1.7+ show our field type in edit mode via pre_visibility hook
+				add_action( 'bp_custom_profile_edit_fields_pre_visibility', array( $this, 'edit_field' ) );
+			
+			} else {
+		
+				// show our field type in edit mode via the previous hook
+				add_action( 'bp_custom_profile_edit_fields', array( $this, 'edit_field' ) );
+			
+			}
+		
+			// enqueue javascript on admin screens
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_js' ) );
+		
+		}
+			
 		// show our field type in read mode after all BuddyPress filters
 		add_filter( 'bp_get_the_profile_field_value', array( $this, 'get_field_value' ), 30, 3 );
 		
 		// filter for those who use xprofile_get_field_data instead of get_field_value
 		add_filter( 'xprofile_get_field_data', array( $this, 'get_field_data' ), 15, 3 );
 		
-		// enqueue javascript on admin screens
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_js') );
-
-		// enqueue stylesheet on public-facing pages
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_css') );
+		// enqueue basic stylesheet on public-facing pages
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_css' ) );
 
 		// --<
 		return $this;
 
 	}
-
+	
+	
+	
 	//##########################################################################
+	
+	
+	
+	/**
+	 * Add details of our xProfile field type (BuddyPress 2.0)
+	 *
+	 * @param array Key/value pairs (field type => class name).
+	 * @return array Key/value pairs (field type => class name).
+	 * @since 0.2
+	 */
+	function add_field_type( $fields ) {
+		
+		// make sure we get an array
+		if ( is_array( $fields ) ) {
+	
+			// add our field to the array
+			$fields['richtext'] = 'BP_XProfile_Field_Type_Richtext';
+			
+		} else {
+		
+			// create array with our item
+			$fields = array( 'richtext' => 'BP_XProfile_Field_Type_Richtext' );
+		
+		}
+
+		// --<
+		return $fields;
+		
+	}
+	
+	
+	
+	//##########################################################################
+	
+	
 	
 	/**
 	 * Register our field type
@@ -100,7 +155,9 @@ class BpXprofileRichTextField {
 		return $field_types;
 
 	}
-
+	
+	
+	
 	/**
 	 * Preview our field type
 	 *
@@ -154,7 +211,9 @@ class BpXprofileRichTextField {
 		}
 
 	}
-
+	
+	
+	
 	/**
 	 * Show our field type in edit mode
 	 *
@@ -218,7 +277,9 @@ class BpXprofileRichTextField {
 		} 
 
 	}
-
+	
+	
+	
 	/**
 	 * Show our field type in read mode
 	 *
@@ -245,7 +306,9 @@ class BpXprofileRichTextField {
 		return $value;
 
 	}
-
+	
+	
+	
 	/**
 	 * Filter for those who use xprofile_get_field_data instead of get_field_value
 	 *
@@ -274,7 +337,9 @@ class BpXprofileRichTextField {
 		return $value;
 
 	}
-
+	
+	
+	
 	/**
 	 * Enqueue JS files
 	 *
@@ -312,7 +377,9 @@ class BpXprofileRichTextField {
 		);
 
 	}
-
+	
+	
+	
 	/**
 	 * Enqueue CSS files
 	 *
@@ -345,14 +412,17 @@ class BpXprofileRichTextField {
  * @return void
  */
 function bp_xprofile_rich_text_field() {    
-
+	
+	// make global in scope
+	global $bp_xprofile_rich_text_field;
+	
 	// init plugin
-	$bp_xprofile_rich_text_field = new BpXprofileRichTextField;
+	$bp_xprofile_rich_text_field = new BP_XProfile_Rich_Text_Field;
 
 }
 
-// add action for plugin init
-add_action( 'bp_init', 'bp_xprofile_rich_text_field' );
+// add action for plugin loaded
+add_action( 'bp_loaded', 'bp_xprofile_rich_text_field' );
 
 
 

@@ -1,0 +1,124 @@
+<?php 
+
+/**
+ * Rich Text xprofile field type.
+ *
+ * @since BuddyPress (2.0.0)
+ */
+class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
+	
+	
+	
+	/**
+	 * Constructor for the Rich Text field type
+	 *
+	 * @since BuddyPress (2.0.0)
+ 	 */
+	public function __construct() {
+	
+		parent::__construct();
+
+		$this->category = _x( 'Single Fields', 'xprofile field type category', 'buddypress' );
+		$this->name     = _x( 'Rich Text Area', 'xprofile field type', 'buddypress' );
+		$this->type     = 'richtext';
+		
+		// allow all values to pass validation
+		$this->set_format( '/.*/', 'replace' );
+		
+		do_action( 'bp_xprofile_field_type_richtext', $this );
+		
+	}
+	
+	
+	
+	/**
+	 * Output the edit field HTML for this field type.
+	 *
+	 * Must be used inside the {@link bp_profile_fields()} template loop.
+	 *
+	 * @param array $raw_properties Optional key/value array of {@link http://dev.w3.org/html5/markup/textarea.html permitted attributes} that you want to add.
+	 * @since BuddyPress (2.0.0)
+	 */
+	public function edit_field_html( array $raw_properties = array() ) {
+
+		// user_id is a special optional parameter that certain other fields types pass to {@link bp_the_profile_field_options()}.
+		if ( isset( $raw_properties['user_id'] ) ) {
+			unset( $raw_properties['user_id'] );
+		}
+		
+		?>
+		<label for="<?php bp_the_profile_field_input_name(); ?>"><?php bp_the_profile_field_name(); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php esc_html_e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
+		<?php do_action( bp_get_the_profile_field_errors_action() ); ?>
+		<?php
+		
+		// define our editor
+		wp_editor( 
+	
+			//wpautop( stripslashes( $data ) ),
+			bp_get_the_profile_field_edit_value(),
+			bp_get_the_profile_field_input_name(),
+			array(
+				'media_buttons' => false, 
+				'teeny' => true, 
+				'quicktags' => false,
+				'tinymce' => array(
+					'theme_advanced_buttons1' => 'bold,italic,underline,blockquote,strikethrough,|,link,unlink,|,spellchecker,removeformat,fullscreen',
+					'theme_advanced_buttons2' => '',
+					'theme_advanced_buttons3' => ''
+				)
+			)
+		
+		);
+	
+	}
+	
+	
+	
+	/**
+	 * Output HTML for this field type on the wp-admin Profile Fields screen
+	 *
+	 * Must be used inside the {@link bp_profile_fields()} template loop.
+	 *
+	 * @param array $raw_properties Optional key/value array of permitted attributes that you want to add.
+	 * @since BuddyPress (2.0.0)
+	 */
+	public function admin_field_html( array $raw_properties = array() ) {
+	
+		// define our editor
+		wp_editor( 
+	
+			'', 
+			'xprofile_richtext',
+			array( 
+				'media_buttons' => false, 
+				'teeny' => true, 
+				'quicktags' => false,
+				'tinymce' => array(
+					'theme_advanced_buttons1' => 'bold,italic,underline,blockquote,strikethrough,link,unlink,spellchecker,removeformat,fullscreen',
+					'theme_advanced_buttons2' => '',
+					'theme_advanced_buttons3' => ''
+				)
+			)
+		
+		);
+	
+	}
+	
+	
+	
+	/**
+	 * This method usually outputs HTML for this field type's children options on the wp-admin Profile Fields
+	 * "Add Field" and "Edit Field" screens, but for this field type, we don't want it, so it's stubbed out.
+	 *
+	 * @param BP_XProfile_Field $current_field The current profile field on the add/edit screen.
+	 * @param string $control_type Optional. HTML input type used to render the current field's child options.
+	 * @since BuddyPress (2.0.0)
+	 */
+	public function admin_new_field_html( BP_XProfile_Field $current_field, $control_type = '' ) {}
+	
+	
+	
+} // class ends
+
+
+
