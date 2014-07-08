@@ -20,6 +20,9 @@ Original Plugin's URI: http://www.atallos.com/portfolio/buddypress-xprofile-cust
 // set our version here - bumping this will cause CSS and JS files to be reloaded
 define( 'BP_XPROFILE_RICH_TEXT_FIELD_VERSION', '0.2' );
 
+// experimental: allow "Add Media" button
+define( 'BP_XPROFILE_RICH_TEXT_FIELD_ADD_MEDIA', false );
+
 
 
 /*
@@ -76,6 +79,9 @@ class BP_XProfile_Rich_Text_Field {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_js' ) );
 		
 		}
+		
+		// override and augment allowed tags
+		add_filter( 'xprofile_allowed_tags', array( $this, 'allowed_tags' ), 30, 1 );
 			
 		// show our field type in read mode after all BuddyPress filters
 		add_filter( 'bp_get_the_profile_field_value', array( $this, 'get_field_value' ), 30, 3 );
@@ -121,6 +127,37 @@ class BP_XProfile_Rich_Text_Field {
 
 		// --<
 		return $fields;
+		
+	}
+	
+	
+	
+	/**
+	 * Allow tags so that we can have images, for example
+	 *
+	 * @param array $allowedtags The array of allowed tags
+	 * @return array $allowedtags The modified array of allowed tags
+	 * @since 0.2
+	 */
+	function allowed_tags( $allowedtags ) {
+		
+		// make sure we get an array
+		if ( is_array( $allowedtags ) ) {
+	
+			// add our tags to the array
+			$allowedtags['img'] = array( 'id' => 1, 'class' => 1, 'src' => 1, 'alt' => 1, 'width' => 1, 'height' => 1 );
+			
+		} else {
+		
+			// create array with our tags
+			$allowedtags = array( 
+				'img' => array( 'id' => 1, 'class' => 1, 'src' => 1, 'alt' => 1, 'width' => 1, 'height' => 1 ) 
+			);
+		
+		}
+		
+		// --<
+		return $allowedtags;
 		
 	}
 	

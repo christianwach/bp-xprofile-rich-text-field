@@ -51,11 +51,10 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 		// define our editor
 		wp_editor( 
 	
-			//wpautop( stripslashes( $data ) ),
 			bp_get_the_profile_field_edit_value(),
 			bp_get_the_profile_field_input_name(),
 			array(
-				'media_buttons' => false, 
+				'media_buttons' => BP_XPROFILE_RICH_TEXT_FIELD_ADD_MEDIA, 
 				'teeny' => true, 
 				'quicktags' => false,
 				'tinymce' => array(
