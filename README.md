@@ -3,6 +3,9 @@ BuddyPress xProfile Rich Text Field
 
 This WordPress plugin adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress.
 
+Please note that if you are using BuddyPress 2.0+ and your theme does not use compatibility mode (i.e it supplies its own BuddyPress template files) then you will have to update your theme's `members/single/profile/edit.php` and `registration/register.php` (or `members/register.php`) templates so that they match the new way of displaying xProfile fields. You can refer to the relevant BuddyPress files to see how that's now being done. These are `bp-templates/bp-legacy/buddypress/members/single/profile/edit.php`
+and `bp-templates/bp-legacy/buddypress/members/register.php`.
+
 ## Installation ##
 
 ### GitHub ###
