@@ -11,8 +11,6 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 	
 	/**
 	 * Constructor for the Rich Text field type
-	 *
-	 * @since BuddyPress (2.0.0)
  	 */
 	public function __construct() {
 	
@@ -36,8 +34,7 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 	 *
 	 * Must be used inside the {@link bp_profile_fields()} template loop.
 	 *
-	 * @param array $raw_properties Optional key/value array of {@link http://dev.w3.org/html5/markup/textarea.html permitted attributes} that you want to add.
-	 * @since BuddyPress (2.0.0)
+	 * @param array $raw_properties Optional key/value array
 	 */
 	public function edit_field_html( array $raw_properties = array() ) {
 
@@ -80,7 +77,6 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 	 * Must be used inside the {@link bp_profile_fields()} template loop.
 	 *
 	 * @param array $raw_properties Optional key/value array of permitted attributes that you want to add.
-	 * @since BuddyPress (2.0.0)
 	 */
 	public function admin_field_html( array $raw_properties = array() ) {
 	
@@ -112,7 +108,6 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 	 *
 	 * @param BP_XProfile_Field $current_field The current profile field on the add/edit screen.
 	 * @param string $control_type Optional. HTML input type used to render the current field's child options.
-	 * @since BuddyPress (2.0.0)
 	 */
 	public function admin_new_field_html( BP_XProfile_Field $current_field, $control_type = '' ) {}
 	

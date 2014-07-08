@@ -1,4 +1,4 @@
-=== Buddypress Profile Rich Text Field ===
+=== Buddypress xProfile Rich Text Field ===
 Contributors: needle
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8MZNB9D3PF48S
 Tags: buddypress, xprofile, field, tinymce, editor
@@ -8,13 +8,13 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Buddypress Profile Rich Text Field adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress.
+Buddypress xProfile Rich Text Field adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress.
 
 
 
 == Description ==
 
-The Buddypress Profile Rich Text Field plugin adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress.
+The Buddypress xProfile Rich Text Field plugin adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress.
 
 
 
@@ -27,6 +27,10 @@ The Buddypress Profile Rich Text Field plugin adds a Rich-text Editor custom fie
 
 
 == Changelog ==
+
+= 0.2 =
+
+Compatibility with BuddyPress 2.0 'BP_XProfile_Field_Type' API
 
 = 0.1 =
 
