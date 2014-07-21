@@ -56,7 +56,7 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 			array(
 				'media_buttons' => BP_XPROFILE_RICH_TEXT_FIELD_ADD_MEDIA, 
 				'teeny' => true, 
-				'quicktags' => false,
+				'quicktags' => apply_filters( 'bp_xprofile_field_type_richtext_quicktags', false ),
 				'tinymce' => array(
 					'theme_advanced_buttons1' => 'bold,italic,underline,blockquote,strikethrough,|,link,unlink,|,spellchecker,removeformat,fullscreen',
 					'theme_advanced_buttons2' => '',
@@ -87,7 +87,7 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 			array( 
 				'media_buttons' => false, 
 				'teeny' => true, 
-				'quicktags' => false,
+				'quicktags' => apply_filters( 'bp_xprofile_field_type_richtext_quicktags', false ),
 				'tinymce' => array(
 					'theme_advanced_buttons1' => 'bold,italic,underline,blockquote,strikethrough,link,unlink,spellchecker,removeformat,fullscreen',
 					'theme_advanced_buttons2' => '',

@@ -236,7 +236,7 @@ class BP_XProfile_Rich_Text_Field {
 				array( 
 					'media_buttons' => false, 
 					'teeny' => true, 
-					'quicktags' => false,
+					'quicktags' => apply_filters( 'bp_xprofile_field_type_richtext_quicktags', false ),
 					'tinymce' => array(
 						'theme_advanced_buttons1' => 'bold,italic,underline,blockquote,strikethrough,link,unlink,spellchecker,removeformat,fullscreen',
 						'theme_advanced_buttons2' => '',
@@ -302,7 +302,7 @@ class BP_XProfile_Rich_Text_Field {
 					array(
 						'media_buttons' => false, 
 						'teeny' => true, 
-						'quicktags' => false,
+						'quicktags' => apply_filters( 'bp_xprofile_field_type_richtext_quicktags', false ),
 						'tinymce' => array(
 							'theme_advanced_buttons1' => 'bold,italic,underline,blockquote,strikethrough,|,link,unlink,|,spellchecker,removeformat,fullscreen',
 							'theme_advanced_buttons2' => '',
