@@ -346,8 +346,8 @@ class BP_XProfile_Rich_Text_Field {
 			global $field;
 			$value = $field->data->value;
 		
-			// now, apply basic content filters
-			$value = wpautop( convert_chars( wptexturize( stripslashes( $value ) ) ) );
+			// apply content filter
+			$value = apply_filters( 'the_content', stripslashes( $value ) );
 		
 		}
 	
@@ -377,8 +377,8 @@ class BP_XProfile_Rich_Text_Field {
 		// is it ours?
 		if ( $field->type == 'richtext' ) {
 
-			// apply basic content filters
-			$value = wpautop( convert_chars( wptexturize( stripslashes( $value ) ) ) );
+			// apply content filter
+			$value = apply_filters( 'the_content', stripslashes( $value ) );
 
 		}
 	
