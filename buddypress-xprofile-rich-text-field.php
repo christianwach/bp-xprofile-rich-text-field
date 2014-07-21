@@ -169,7 +169,7 @@ class BP_XProfile_Rich_Text_Field {
 		}
 		
 		// --<
-		return $allowedtags;
+		return apply_filters( 'bp_xprofile_field_type_richtext_allowedtags', $allowedtags, $data_obj );
 		
 	}
 	
@@ -349,11 +349,14 @@ class BP_XProfile_Rich_Text_Field {
 			// apply content filter
 			$value = apply_filters( 'the_content', stripslashes( $value ) );
 		
+			// return filtered value
+			return apply_filters( 'bp_xprofile_field_type_richtext_value', $value );
+
 		}
 	
-		// --<
+		// fallback
 		return $value;
-
+		
 	}
 	
 	
@@ -380,9 +383,12 @@ class BP_XProfile_Rich_Text_Field {
 			// apply content filter
 			$value = apply_filters( 'the_content', stripslashes( $value ) );
 
+			// return filtered value
+			return apply_filters( 'bp_xprofile_field_type_richtext_value', $value );
+			
 		}
-	
-		// --<
+		
+		// fallback
 		return $value;
 
 	}
