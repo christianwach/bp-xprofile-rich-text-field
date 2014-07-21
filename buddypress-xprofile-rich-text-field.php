@@ -81,7 +81,7 @@ class BP_XProfile_Rich_Text_Field {
 		}
 		
 		// override and augment allowed tags
-		add_filter( 'xprofile_allowed_tags', array( $this, 'allowed_tags' ), 30, 1 );
+		add_filter( 'xprofile_allowed_tags', array( $this, 'allowed_tags' ), 30, 2 );
 			
 		// show our field type in read mode after all BuddyPress filters
 		add_filter( 'bp_get_the_profile_field_value', array( $this, 'get_field_value' ), 30, 3 );
@@ -136,10 +136,22 @@ class BP_XProfile_Rich_Text_Field {
 	 * Allow tags so that we can have images, for example
 	 *
 	 * @param array $allowedtags The array of allowed tags
+	 * @param object $data_obj The xProfile data object (BP 2.1+)
 	 * @return array $allowedtags The modified array of allowed tags
 	 * @since 0.2
 	 */
-	function allowed_tags( $allowedtags ) {
+	function allowed_tags( $allowedtags, $data_obj = null ) {
+		
+		// test if BP has sent the data object
+		if ( ! is_null( $data_obj ) ) {
+			
+			// get field from data object
+			$field = new BP_XProfile_Field( $data_obj->field_id );
+			
+			// if this isn't our field, skip amending allowed tags
+			if ( $field->type != 'richtext' ) return $allowedtags;
+			
+		}
 		
 		// make sure we get an array
 		if ( is_array( $allowedtags ) ) {
