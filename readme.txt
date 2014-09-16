@@ -3,8 +3,8 @@ Contributors: needle
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8MZNB9D3PF48S
 Tags: buddypress, xprofile, field, tinymce, editor
 Requires at least: 3.5
-Tested up to: 3.9
-Stable tag: 0.2
+Tested up to: 4.0
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,11 @@ and `bp-templates/bp-legacy/buddypress/members/register.php`.
 
 
 == Changelog ==
+
+= 0.2.1 =
+
+Implement content filters independently of 'the_content'
+Allow tags now present in the teeny TinyMCE editor
 
 = 0.2 =
 
