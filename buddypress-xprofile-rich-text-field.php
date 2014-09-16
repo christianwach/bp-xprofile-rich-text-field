@@ -80,6 +80,13 @@ class BP_XProfile_Rich_Text_Field {
 		
 		}
 		
+		// create custom filters that mirror 'the_content'
+		add_filter( 'bp_xprofile_field_type_richtext_content', 'wptexturize'        );
+		add_filter( 'bp_xprofile_field_type_richtext_content', 'convert_smilies'    );
+		add_filter( 'bp_xprofile_field_type_richtext_content', 'convert_chars'      );
+		add_filter( 'bp_xprofile_field_type_richtext_content', 'wpautop'            );
+		add_filter( 'bp_xprofile_field_type_richtext_content', 'shortcode_unautop'  );
+
 		// override and augment allowed tags
 		add_filter( 'xprofile_allowed_tags', array( $this, 'allowed_tags' ), 30, 2 );
 			
@@ -353,7 +360,7 @@ class BP_XProfile_Rich_Text_Field {
 			$value = $field->data->value;
 		
 			// apply content filter
-			$value = apply_filters( 'the_content', stripslashes( $value ) );
+			$value = apply_filters( 'bp_xprofile_field_type_richtext_content', stripslashes( $value ) );
 		
 			// return filtered value
 			return apply_filters( 'bp_xprofile_field_type_richtext_value', $value );
@@ -387,7 +394,7 @@ class BP_XProfile_Rich_Text_Field {
 		if ( $field->type == 'richtext' ) {
 
 			// apply content filter
-			$value = apply_filters( 'the_content', stripslashes( $value ) );
+			$value = apply_filters( 'bp_xprofile_field_type_richtext_content', stripslashes( $value ) );
 
 			// return filtered value
 			return apply_filters( 'bp_xprofile_field_type_richtext_value', $value );
