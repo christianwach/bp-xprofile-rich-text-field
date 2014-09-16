@@ -168,6 +168,7 @@ class BP_XProfile_Rich_Text_Field {
 			$allowedtags['ul'] = array( 'id' => 1, 'class' => 1 );
 			$allowedtags['ol'] = array( 'id' => 1, 'class' => 1 );
 			$allowedtags['li'] = array( 'id' => 1, 'class' => 1 );
+			$allowedtags['span'] = array( 'style' => 1 );
 			
 		} else {
 		
@@ -177,6 +178,7 @@ class BP_XProfile_Rich_Text_Field {
 				'ul' => array( 'id' => 1, 'class' => 1 ),
 				'ol' => array( 'id' => 1, 'class' => 1 ),
 				'li' => array( 'id' => 1, 'class' => 1 ),
+				'span' => array( 'style' => 1 ),
 			);
 		
 		}
