@@ -165,12 +165,18 @@ class BP_XProfile_Rich_Text_Field {
 	
 			// add our tags to the array
 			$allowedtags['img'] = array( 'id' => 1, 'class' => 1, 'src' => 1, 'alt' => 1, 'width' => 1, 'height' => 1 );
+			$allowedtags['ul'] = array( 'id' => 1, 'class' => 1 );
+			$allowedtags['ol'] = array( 'id' => 1, 'class' => 1 );
+			$allowedtags['li'] = array( 'id' => 1, 'class' => 1 );
 			
 		} else {
 		
 			// create array with our tags
 			$allowedtags = array( 
-				'img' => array( 'id' => 1, 'class' => 1, 'src' => 1, 'alt' => 1, 'width' => 1, 'height' => 1 ) 
+				'img' => array( 'id' => 1, 'class' => 1, 'src' => 1, 'alt' => 1, 'width' => 1, 'height' => 1 ),
+				'ul' => array( 'id' => 1, 'class' => 1 ),
+				'ol' => array( 'id' => 1, 'class' => 1 ),
+				'li' => array( 'id' => 1, 'class' => 1 ),
 			);
 		
 		}
