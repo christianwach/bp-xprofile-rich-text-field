@@ -42,6 +42,17 @@ class BP_XProfile_Rich_Text_Field {
 	 */
 	function __construct() {
 		
+		// this may be bundled into BuddyPress 2.2, so check
+		if ( class_exists( 'BP_XProfile_Field_Type_Richtext' ) ) {
+		
+			// show message in admin
+			add_action( 'admin_notices', array( $this, 'not_needed' ) );
+			add_action( 'network_admin_notices', array( $this, 'not_needed' ) );
+			
+			return $this;
+			
+		}
+		
 		// there's a new API in BuddyPress 2.0
 		if ( function_exists( 'bp_xprofile_get_field_types' ) ) {
 		
@@ -102,6 +113,25 @@ class BP_XProfile_Rich_Text_Field {
 		// --<
 		return $this;
 
+	}
+	
+	
+	
+	/** 
+	 * Utility to add a message to admin pages when this plugin is not required
+	 *
+	 * @return void
+	 */
+	public function not_needed() {
+
+		// check user permissions
+		if ( current_user_can( 'manage_options' ) ) {
+		
+			// show it
+			echo '<div id="message" class="error"><p>'.__( 'The Buddypress xProfile Rich Text Field plugin is no longer required because its functionality has been moved into BuddyPress core. You may safely deactivate it.', 'buddypress-xprofile-rich-text-field' ).'</p></div>';
+		
+		}
+		
 	}
 	
 	
