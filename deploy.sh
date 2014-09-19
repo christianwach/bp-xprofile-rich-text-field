@@ -5,7 +5,7 @@
 # main config
 PLUGINSLUG="bp-xprofile-rich-text-field"
 CURRENTDIR=`pwd`
-MAINFILE="bp-xprofile-rich-text-field.php" # this should be the name of your main php file in the wordpress plugin
+MAINFILE="buddypress-xprofile-rich-text-field.php" # this should be the name of your main php file in the wordpress plugin
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
