@@ -16,8 +16,8 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 	
 		parent::__construct();
 
-		$this->category = _x( 'Single Fields', 'xprofile field type category', 'buddypress' );
-		$this->name     = _x( 'Rich Text Area', 'xprofile field type', 'buddypress' );
+		$this->category = _x( 'Single Fields', 'xprofile field type category', 'buddypress-xprofile-rich-text-field' );
+		$this->name     = _x( 'Rich Text Area', 'xprofile field type', 'buddypress-xprofile-rich-text-field' );
 		$this->type     = 'richtext';
 		
 		// allow all values to pass validation
