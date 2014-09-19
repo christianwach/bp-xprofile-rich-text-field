@@ -53,6 +53,9 @@ class BP_XProfile_Rich_Text_Field {
 			
 		}
 		
+		// use translation files
+		add_action( 'plugins_loaded', array( $this, 'enable_translation' ) );
+
 		// there's a new API in BuddyPress 2.0
 		if ( function_exists( 'bp_xprofile_get_field_types' ) ) {
 		
@@ -131,6 +134,34 @@ class BP_XProfile_Rich_Text_Field {
 			echo '<div id="message" class="error"><p>'.__( 'The Buddypress xProfile Rich Text Field plugin is no longer required because its functionality has been moved into BuddyPress core. You may safely deactivate it.', 'buddypress-xprofile-rich-text-field' ).'</p></div>';
 		
 		}
+		
+	}
+	
+	
+	
+	/** 
+	 * Load translation files
+	 * 
+	 * A good reference on how to implement translation in WordPress:
+	 * http://ottopress.com/2012/internationalization-youre-probably-doing-it-wrong/
+	 * 
+	 * @return void
+	 */
+	public function enable_translation() {
+	
+		// not used, as there are no translations as yet
+		load_plugin_textdomain(
+		
+			// unique name
+			'buddypress-xprofile-rich-text-field', 
+			
+			// deprecated argument
+			false,
+			
+			// relative path to directory containing translation files
+			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+
+		);
 		
 	}
 	

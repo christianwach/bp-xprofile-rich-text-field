@@ -1,0 +1,39 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-xprofile-rich-text-field\n"
+"POT-Creation-Date: 2014-09-19 15:19:29+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: buddypress-xprofile-rich-text-field-class.php:19
+msgctxt "xprofile field type category"
+msgid "Single Fields"
+msgstr ""
+
+#: buddypress-xprofile-rich-text-field-class.php:20
+msgctxt "xprofile field type"
+msgid "Rich Text Area"
+msgstr ""
+
+#: buddypress-xprofile-rich-text-field-class.php:47
+msgid "(required)"
+msgstr ""
+
+#: buddypress-xprofile-rich-text-field.php:134
+msgid "The Buddypress xProfile Rich Text Field plugin is no longer required because its functionality has been moved into BuddyPress core. You may safely deactivate it."
+msgstr ""
+
+#: buddypress-xprofile-rich-text-field.php:375
+msgid "*"
+msgstr ""
+
+#: buddypress-xprofile-rich-text-field.php:506
+msgid "Rich Text"
+msgstr ""
