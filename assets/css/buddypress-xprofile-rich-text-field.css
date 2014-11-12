@@ -3,10 +3,10 @@
 	width: auto;
 }
 
-#buddypress table.mceToolbar tr td, 
+#buddypress table.mceToolbar tr td,
 #buddypress table.mceToolbar tr th,
-#buddypress table.mceLayout tr td, 
-#buddypress table.mceLayout tr th 
+#buddypress table.mceLayout tr td,
+#buddypress table.mceLayout tr th
 {
 	padding: 0;
 }

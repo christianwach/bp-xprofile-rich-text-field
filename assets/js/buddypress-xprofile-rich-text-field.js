@@ -8,22 +8,22 @@
 bpxprofile_richtext = {
 
 	init : function(){
-				
+
 	   if ( jQ("div#poststuff select#fieldtype").html() !== null ) {
 
 			// add richtext field type on Add/Edit Xprofile field admin screen
-			if ( 
-			
-				jQ('div#poststuff select#fieldtype option[value="richtext"]').html() === undefined || 
-				jQ('div#poststuff select#fieldtype option[value="richtext"]').html() == null 
-				
+			if (
+
+				jQ('div#poststuff select#fieldtype option[value="richtext"]').html() === undefined ||
+				jQ('div#poststuff select#fieldtype option[value="richtext"]').html() == null
+
 			) {
-				
+
 				var richtextOption = '<option value="richtext">'+RichTextParams.richtext+'</option>';
 				jQ("div#poststuff select#fieldtype").append(richtextOption);
-			
-			}					
-	
+
+			}
+
 		}
 	}
 
@@ -39,7 +39,7 @@ jQ(document).ready(function(){
 });
 
 
-				
+
 })(jQuery);
 
 
