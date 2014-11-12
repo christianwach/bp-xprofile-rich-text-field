@@ -113,6 +113,9 @@ class BP_XProfile_Rich_Text_Field {
 		// enqueue basic stylesheet on public-facing pages
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_css' ) );
 
+		// add BP Profile Search compatibility
+		$this->bps_compat();
+
 		// --<
 		return $this;
 
@@ -538,6 +541,51 @@ class BP_XProfile_Rich_Text_Field {
 		);
 
 	}
+
+
+
+	/**
+	 * BP Profile Search compatibility
+	 *
+	 * @return void
+	 */
+	public function bps_compat() {
+
+		// bail unless BP Profile Search present
+		if ( ! defined( 'BPS_VERSION' ) ) return;
+
+		//
+		add_filter('bps_field_validation_type', array( $this, 'bps_compat' ), 10, 2);
+		add_filter('bps_field_html_type', array( $this, 'bps_compat' ), 10, 2);
+		add_filter('bps_field_criteria_type', array( $this, 'bps_compat' ), 10, 2);
+		add_filter('bps_field_query_type', array( $this, 'bps_compat' ), 10, 2);
+
+	}
+
+
+
+	/**
+	 * BP Profile Search field compatibility
+	 *
+	 * @param string $field_type The existing xProfile field type
+	 * @param object $field The xProfile field object
+	 * @return string $field_type The modified xProfile field type
+	 */
+	public function bps_field_compat( $field_type, $field ) {
+
+		// cast our field type as 'textbox'
+		switch ( $field->type ) {
+			case 'richtext':
+				$field_type = 'textbox';
+				break;
+		}
+
+		// --<
+		return $field_type;
+
+	}
+
+
 
 } // class ends
 
