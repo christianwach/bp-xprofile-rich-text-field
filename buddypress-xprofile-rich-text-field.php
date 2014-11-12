@@ -54,7 +54,7 @@ class BP_XProfile_Rich_Text_Field {
 		}
 
 		// use translation files
-		add_action( 'plugins_loaded', array( $this, 'enable_translation' ) );
+		$this->enable_translation();
 
 		// there's a new API in BuddyPress 2.0
 		if ( function_exists( 'bp_xprofile_get_field_types' ) ) {
