@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: buddypress, xprofile, field, tinymce, editor
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 0.2.2
+Stable tag: 0.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ and `bp-templates/bp-legacy/buddypress/members/register.php`.
 
 == Installation ==
 
-1. Extract the plugin archive 
+1. Extract the plugin archive
 1. Upload plugin files to your `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 

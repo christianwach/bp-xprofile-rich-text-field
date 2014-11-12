@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 Plugin Name: Buddypress xProfile Rich Text Field
 Description: Add a Rich Text custom field type (editable using the WordPress Visual Editor) to Extended Profiles in BuddyPress.
-Version: 0.2.2
+Version: 0.2.3
 Author: Christian Wach
 Author URI: http://haystack.co.uk
 Plugin URI: http://haystack.co.uk
@@ -18,7 +18,7 @@ Original Plugin's URI: http://www.atallos.com/portfolio/buddypress-xprofile-cust
 
 
 // set our version here - bumping this will cause CSS and JS files to be reloaded
-define( 'BP_XPROFILE_RICH_TEXT_FIELD_VERSION', '0.2.2' );
+define( 'BP_XPROFILE_RICH_TEXT_FIELD_VERSION', '0.2.3' );
 
 // experimental: allow "Add Media" button
 define( 'BP_XPROFILE_RICH_TEXT_FIELD_ADD_MEDIA', false );
