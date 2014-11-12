@@ -33,6 +33,11 @@ and `bp-templates/bp-legacy/buddypress/members/register.php`.
 
 == Changelog ==
 
+= 0.2.3 =
+
+Translation fixed
+Support for BP Profile Search plugin - props nicolacirotto
+
 = 0.2.2 =
 
 Translation enabled
