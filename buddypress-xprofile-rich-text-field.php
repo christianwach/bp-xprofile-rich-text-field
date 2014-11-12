@@ -547,6 +547,8 @@ class BP_XProfile_Rich_Text_Field {
 	/**
 	 * BP Profile Search compatibility
 	 *
+	 * @see http://dontdream.it/bp-profile-search/custom-profile-field-types/
+	 *
 	 * @return void
 	 */
 	public function bps_compat() {
@@ -554,11 +556,11 @@ class BP_XProfile_Rich_Text_Field {
 		// bail unless BP Profile Search present
 		if ( ! defined( 'BPS_VERSION' ) ) return;
 
-		//
-		add_filter('bps_field_validation_type', array( $this, 'bps_compat' ), 10, 2);
-		add_filter('bps_field_html_type', array( $this, 'bps_compat' ), 10, 2);
-		add_filter('bps_field_criteria_type', array( $this, 'bps_compat' ), 10, 2);
-		add_filter('bps_field_query_type', array( $this, 'bps_compat' ), 10, 2);
+		// add filters
+		add_filter( 'bps_field_validation_type', array( $this, 'bps_compat' ), 10, 2 );
+		add_filter( 'bps_field_html_type', array( $this, 'bps_compat' ), 10, 2 );
+		add_filter( 'bps_field_criteria_type', array( $this, 'bps_compat' ), 10, 2 );
+		add_filter( 'bps_field_query_type', array( $this, 'bps_compat' ), 10, 2 );
 
 	}
 
@@ -591,8 +593,6 @@ class BP_XProfile_Rich_Text_Field {
 
 
 
-
-
 /**
  * Initialise our plugin after BuddyPress initialises
  *
@@ -610,8 +610,6 @@ function bp_xprofile_rich_text_field() {
 
 // add action for plugin loaded
 add_action( 'bp_loaded', 'bp_xprofile_rich_text_field' );
-
-
 
 
 
