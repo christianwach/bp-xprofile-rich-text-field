@@ -550,6 +550,7 @@ class BP_XProfile_Rich_Text_Field {
 	 * @see http://dontdream.it/bp-profile-search/custom-profile-field-types/
 	 *
 	 * @return void
+	 * @since 0.2.3
 	 */
 	public function bps_compat() {
 
@@ -572,6 +573,7 @@ class BP_XProfile_Rich_Text_Field {
 	 * @param string $field_type The existing xProfile field type
 	 * @param object $field The xProfile field object
 	 * @return string $field_type The modified xProfile field type
+	 * @since 0.2.3
 	 */
 	public function bps_field_compat( $field_type, $field ) {
 
