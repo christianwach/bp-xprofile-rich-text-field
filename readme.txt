@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: buddypress, xprofile, field, tinymce, editor
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 0.2.3
+Stable tag: 0.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,10 @@ and `bp-templates/bp-legacy/buddypress/members/register.php`.
 
 
 == Changelog ==
+
+= 0.2.4 =
+
+Fixed support for BP Profile Search plugin - props nicolacirotto
 
 = 0.2.3 =
 
