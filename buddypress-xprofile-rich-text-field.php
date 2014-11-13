@@ -558,10 +558,10 @@ class BP_XProfile_Rich_Text_Field {
 		if ( ! defined( 'BPS_VERSION' ) ) return;
 
 		// add filters
-		add_filter( 'bps_field_validation_type', array( $this, 'bps_compat' ), 10, 2 );
-		add_filter( 'bps_field_html_type', array( $this, 'bps_compat' ), 10, 2 );
-		add_filter( 'bps_field_criteria_type', array( $this, 'bps_compat' ), 10, 2 );
-		add_filter( 'bps_field_query_type', array( $this, 'bps_compat' ), 10, 2 );
+		add_filter( 'bps_field_validation_type', array( $this, 'bps_field_compat' ), 10, 2 );
+		add_filter( 'bps_field_html_type', array( $this, 'bps_field_compat' ), 10, 2 );
+		add_filter( 'bps_field_criteria_type', array( $this, 'bps_field_compat' ), 10, 2 );
+		add_filter( 'bps_field_query_type', array( $this, 'bps_field_compat' ), 10, 2 );
 
 	}
 
