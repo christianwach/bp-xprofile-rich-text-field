@@ -3,8 +3,8 @@ Contributors: needle
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8MZNB9D3PF48S
 Tags: buddypress, xprofile, field, tinymce, editor
 Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 0.2.4
+Tested up to: 4.4
+Stable tag: 0.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ Please note: this plugin is no longer required because its functionality has bee
 
 https://buddypress.trac.wordpress.org/ticket/5625
 
-Please note that if you are using BuddyPress 2.0+ and your theme does not use compatibility mode (i.e it supplies its own BuddyPress template files) then you will have to update your theme's `members/single/profile/edit.php` and `registration/register.php` (or `members/register.php`) templates so that they match the new way of displaying xProfile fields. You can refer to the relevant BuddyPress files to see how that's now being done. These are `bp-templates/bp-legacy/buddypress/members/single/profile/edit.php`
+If you are using BuddyPress 2.0+ and your theme does not use compatibility mode (i.e it supplies its own BuddyPress template files) then you will have to update your theme's `members/single/profile/edit.php` and `registration/register.php` (or `members/register.php`) templates so that they match the new way of displaying xProfile fields. You can refer to the relevant BuddyPress files to see how that's now being done. These are `bp-templates/bp-legacy/buddypress/members/single/profile/edit.php`
 and `bp-templates/bp-legacy/buddypress/members/register.php`.
 
 
