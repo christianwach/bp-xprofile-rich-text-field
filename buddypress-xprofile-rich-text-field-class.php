@@ -10,7 +10,9 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 
 
 	/**
-	 * Constructor for the Rich Text field type
+	 * Constructor for the Rich Text field type.
+	 *
+	 * @since 0.2
  	 */
 	public function __construct() {
 
@@ -33,6 +35,8 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 	 * Output the edit field HTML for this field type.
 	 *
 	 * Must be used inside the {@link bp_profile_fields()} template loop.
+	 *
+	 * @since 0.2
 	 *
 	 * @param array $raw_properties Optional key/value array
 	 */
@@ -74,9 +78,11 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 
 
 	/**
-	 * Output HTML for this field type on the wp-admin Profile Fields screen
+	 * Output HTML for this field type on the wp-admin Profile Fields screen.
 	 *
 	 * Must be used inside the {@link bp_profile_fields()} template loop.
+	 *
+	 * @since 0.2
 	 *
 	 * @param array $raw_properties Optional key/value array of permitted attributes that you want to add.
 	 */
@@ -108,8 +114,11 @@ class BP_XProfile_Field_Type_Richtext extends BP_XProfile_Field_Type {
 
 
 	/**
-	 * This method usually outputs HTML for this field type's children options on the wp-admin Profile Fields
-	 * "Add Field" and "Edit Field" screens, but for this field type, we don't want it, so it's stubbed out.
+	 * This method usually outputs HTML for this field type's children options
+	 * on the wp-admin Profile Fields "Add Field" and "Edit Field" screens, but
+	 * for this field type, we don't want it, so it's stubbed out.
+	 *
+	 * @since 0.2
 	 *
 	 * @param BP_XProfile_Field $current_field The current profile field on the add/edit screen.
 	 * @param string $control_type Optional. HTML input type used to render the current field's child options.

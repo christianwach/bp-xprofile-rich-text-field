@@ -25,20 +25,21 @@ define( 'BP_XPROFILE_RICH_TEXT_FIELD_ADD_MEDIA', false );
 
 
 
-/*
---------------------------------------------------------------------------------
-BP_XProfile_Rich_Text_Field Class
---------------------------------------------------------------------------------
-*/
-
+/**
+ * Buddypress xProfile Rich Text Field Class.
+ *
+ * A class that encapsulates plugin functionality.
+ *
+ * @since 3.0
+ */
 class BP_XProfile_Rich_Text_Field {
 
 
 
 	/**
-	 * Initialises this object
+	 * Initialises this object.
 	 *
-	 * @return object
+	 * @since 0.1
 	 */
 	function __construct() {
 
@@ -110,12 +111,12 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Load translation files
+	 * Load translation files.
 	 *
 	 * A good reference on how to implement translation in WordPress:
 	 * http://ottopress.com/2012/internationalization-youre-probably-doing-it-wrong/
 	 *
-	 * @return void
+	 * @since 0.1
 	 */
 	public function enable_translation() {
 
@@ -142,11 +143,12 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Add details of our xProfile field type (BuddyPress 2.0)
+	 * Add details of our xProfile field type. (BuddyPress 2.0)
+	 *
+	 * @since 0.2
 	 *
 	 * @param array Key/value pairs (field type => class name).
 	 * @return array Key/value pairs (field type => class name).
-	 * @since 0.2
 	 */
 	function add_field_type( $fields ) {
 
@@ -171,12 +173,13 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Allow tags so that we can have images, for example
+	 * Allow tags so that we can have images, for example.
+	 *
+	 * @since 0.2
 	 *
 	 * @param array $allowedtags The array of allowed tags
 	 * @param object $data_obj The xProfile data object (BP 2.1+)
 	 * @return array $allowedtags The modified array of allowed tags
-	 * @since 0.2
 	 */
 	function allowed_tags( $allowedtags, $data_obj = null ) {
 
@@ -228,10 +231,12 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Register our field type
+	 * Register our field type.
 	 *
-	 * @param array $field_types
-	 * @return array
+	 * @since 0.1
+	 *
+	 * @param array $field_types The existing array of field types
+	 * @return array $field_types The modified array of field types
 	 */
 	function register_field_type( $field_types ) {
 
@@ -256,11 +261,13 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Preview our field type
+	 * Preview our field type.
 	 *
-	 * @param object $field
-	 * @param boolean $echo
-	 * @return string
+	 * @since 0.1
+	 *
+	 * @param object $field The field object
+	 * @param boolean $echo When true, echoes the output, otherwise returns it
+	 * @return string $html The admin field preview markup
 	 */
 	function preview_admin_field( $field, $echo = true ) {
 
@@ -315,9 +322,9 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Show our field type in edit mode
+	 * Show our field type in edit mode.
 	 *
-	 * @return void
+	 * @since 0.1
 	 */
 	function edit_field() {
 
@@ -384,14 +391,16 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Show our field type in read mode
+	 * Show our field type in read mode.
 	 *
-	 * @param string $value
-	 * @param string $type
-	 * @param integer $id
-	 * @return string
+	 * @since 0.1
+	 *
+	 * @param string $value The existing value of the field
+	 * @param string $type The type of field
+	 * @param integer $user_id The numeric ID of the WordPress user
+	 * @return string $value The modified value of the field
 	 */
-	function get_field_value( $value = '', $type = '', $id = '' ) {
+	function get_field_value( $value = '', $type = '', $user_id = '' ) {
 
 		// is it our field type?
 		if ( $type == 'richtext' ) {
@@ -416,12 +425,14 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Filter for those who use xprofile_get_field_data instead of get_field_value
+	 * Filter for those who use xprofile_get_field_data instead of get_field_value.
 	 *
-	 * @param string $value
-	 * @param integer $field_id
-	 * @param integer $user_id
-	 * @return string
+	 * @since 0.1
+	 *
+	 * @param string $value The existing value of the field
+	 * @param string $type The type of field
+	 * @param integer $user_id The numeric ID of the WordPress user
+	 * @return string $value The modified value of the field
 	 */
 	function get_field_data( $value = '', $field_id = '', $user_id = '' ) {
 
@@ -450,9 +461,11 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Enqueue JS files
+	 * Enqueue JS files.
 	 *
-	 * @return void
+	 * @since 0.1
+	 *
+	 * @param str $hook The identifier for the current admin page
 	 */
 	function enqueue_js( $hook ) {
 
@@ -463,12 +476,10 @@ class BP_XProfile_Rich_Text_Field {
 
 		// enqueue it
 		wp_enqueue_script(
-
 			'bpxprofilertf-js',
 			plugins_url( 'assets/js/buddypress-xprofile-rich-text-field.js', __FILE__ ),
 			array( 'jquery' ), // deps
 			BP_XPROFILE_RICH_TEXT_FIELD_VERSION // version
-
 		);
 
 		// define translatable strings
@@ -478,11 +489,9 @@ class BP_XProfile_Rich_Text_Field {
 
 		// localise
 		wp_localize_script(
-
 			'bpxprofilertf-js',
 			'RichTextParams',
 			$params
-
 		);
 
 	}
@@ -490,21 +499,19 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * Enqueue CSS files
+	 * Enqueue CSS files.
 	 *
-	 * @return void
+	 * @since 0.1
 	 */
 	function enqueue_css() {
 
 		// enqueue
 		wp_enqueue_style(
-
 			'bpxprofilertf-css',
 			plugins_url( 'assets/css/buddypress-xprofile-rich-text-field.css', __FILE__ ),
 			array( 'bp-legacy-css' ), // deps
 			BP_XPROFILE_RICH_TEXT_FIELD_VERSION, // version
 			'all' // media
-
 		);
 
 	}
@@ -512,11 +519,10 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * BP Profile Search compatibility
+	 * BP Profile Search compatibility.
 	 *
 	 * @see http://dontdream.it/bp-profile-search/custom-profile-field-types/
 	 *
-	 * @return void
 	 * @since 0.2.3
 	 */
 	public function bps_compat() {
@@ -535,12 +541,13 @@ class BP_XProfile_Rich_Text_Field {
 
 
 	/**
-	 * BP Profile Search field compatibility
+	 * BP Profile Search field compatibility.
+	 *
+	 * @since 0.2.3
 	 *
 	 * @param string $field_type The existing xProfile field type
 	 * @param object $field The xProfile field object
 	 * @return string $field_type The modified xProfile field type
-	 * @since 0.2.3
 	 */
 	public function bps_field_compat( $field_type, $field ) {
 
@@ -563,9 +570,9 @@ class BP_XProfile_Rich_Text_Field {
 
 
 /**
- * Initialise our plugin after BuddyPress initialises
+ * Initialise our plugin after BuddyPress initialises.
  *
- * @return void
+ * @since 0.1
  */
 function bp_xprofile_rich_text_field() {
 

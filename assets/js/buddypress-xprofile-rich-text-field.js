@@ -2,8 +2,8 @@
 
 
 
-/*
- * Wrapped in a class
+/**
+ * Wrapped in a class.
  */
 bpxprofile_richtext = {
 
@@ -31,7 +31,7 @@ bpxprofile_richtext = {
 
 
 
-/*
+/**
  * On page load...
  */
 jQ(document).ready(function(){
