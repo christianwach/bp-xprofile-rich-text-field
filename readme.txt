@@ -14,7 +14,9 @@ Buddypress xProfile Rich Text Field adds a Rich-text Editor custom field type to
 
 == Description ==
 
-The Buddypress xProfile Rich Text Field plugin adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress. It is intended as a "Feature Plugin" for BuddyPress with the hope that it will be included in core. See:
+The Buddypress xProfile Rich Text Field plugin adds a Rich-text Editor custom field type to Extended Profiles in BuddyPress.
+
+Please note: this plugin is no longer required because its functionality has been implemented since BuddyPress 2.4. Having said that, if you already have data in xProfile fields of this type, you will need to keep this plugin active. See:
 
 https://buddypress.trac.wordpress.org/ticket/5625
 
