@@ -49,7 +49,8 @@ class BP_XProfile_Rich_Text_Field {
 			add_action( 'admin_notices', array( $this, 'not_needed' ) );
 			add_action( 'network_admin_notices', array( $this, 'not_needed' ) );
 
-			return $this;
+			// bail
+			return;
 
 		}
 
@@ -115,9 +116,6 @@ class BP_XProfile_Rich_Text_Field {
 
 		// add BP Profile Search compatibility
 		$this->bps_compat();
-
-		// --<
-		return $this;
 
 	}
 
